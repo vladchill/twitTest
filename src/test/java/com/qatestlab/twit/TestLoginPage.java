@@ -2,6 +2,7 @@ package com.qatestlab.twit;
 
 
 import com.qatestlab.pages.LoginPage;
+import static org.testng.Assert.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -18,9 +19,11 @@ public class TestLoginPage extends BaseTest{
     @Test
     public void testLoginPageAppearCorrect() {
 
-        loginPage.setUserName("testoviyacc");
-        loginPage.setPassword("zaqxswcde12345678");
-
+        loginPage.authorization("vlad_x_sumy@mail.ru","zaqxswcde12345678");
+        loginPage.clickAccountInfoButton();
+        assertEquals("testoviyacc", loginPage.getAccountName(),"Login is different");
     }
+
+
 
 }

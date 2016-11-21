@@ -11,11 +11,20 @@ public class LoginPage {
     private WebDriver driver;
     private static final String BASE_URL = "https://twitter.com";
 
-    @FindBy(css = "#gb_70")
+    @FindBy(xpath = "//div/input[@id='signin-email']")
     private WebElement loginField;
 
-    @FindBy(css = "#gb_70")
+    @FindBy(xpath = "//div/input[@id='signin-password']")
     private WebElement passwordField;
+
+    @FindBy(xpath = "//form//button[contains(@class,'submit')]")
+    private WebElement singInButton;
+
+    @FindBy(xpath = "//div/ul/li[@id='user-dropdown']/a")
+    private WebElement accountInfoButton;
+
+    @FindBy(xpath = "//div/ul/li[@id='user-dropdown']/div[@class='dropdown-menu']//*[@class='fullname']")
+    private WebElement accountName;
 
 
     public LoginPage(WebDriver driver) {
@@ -33,6 +42,26 @@ public class LoginPage {
     public void setPassword(String password){
         passwordField.sendKeys(password);
         log("Set password "+password);
+    }
+
+    public void clicksingInButton(){
+        singInButton.click();
+        log("click sing in button");
+    }
+
+    public void authorization(String username, String password){
+        setUserName(username);
+        setPassword(password);
+        clicksingInButton();
+    }
+
+    public void clickAccountInfoButton(){
+        accountInfoButton.click();
+        log("click account info button");
+    }
+
+    public String getAccountName(){
+        return accountName.getText();
     }
 
 
