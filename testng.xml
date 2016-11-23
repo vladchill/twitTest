@@ -7,7 +7,7 @@
     </listeners>
 
     <test name="Twitter Test" preserve-order="true">
-        <parameter name="daysRange" value="4" />
+        <parameter name="daysRange" value="1" />
         <classes>
             <class name="com.qatestlab.twit.TestLoginPage">
 

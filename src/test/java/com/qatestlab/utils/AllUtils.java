@@ -8,6 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
 
 import java.io.File;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+
 import static com.qatestlab.utils.ReporterCustom.*;
 
 public class AllUtils {
@@ -43,5 +47,15 @@ public class AllUtils {
         } catch (Exception e) {
             Reporter.log("Failed to save screenshot <br></br> " + e);
         }
+    }
+
+    public static boolean isInRange(long timeOfElement, int range){
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println("Current Date : " + localDateTime);
+        Instant instRange = localDateTime.minusDays(range).atZone(ZoneId.systemDefault()).toInstant();
+        System.out.println("Until Date : " + instRange);
+        Instant instElement = Instant.ofEpochMilli(timeOfElement);
+        System.out.println("Element Date : " + instElement);
+        return instElement.isAfter(instRange);
     }
 }

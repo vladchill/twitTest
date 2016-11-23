@@ -20,6 +20,7 @@ public class BaseTest {
     public void setUp() {
         driver = new FirefoxDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//        driver.manage().window().maximize();
     }
 
 //    @AfterClass
