@@ -6,6 +6,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.Reporter;
+import ru.yandex.qatools.allure.annotations.Attachment;
 
 import java.io.File;
 import java.time.Instant;
@@ -57,5 +58,10 @@ public class AllUtils {
         Instant instElement = Instant.ofEpochMilli(timeOfElement);
         System.out.println("Element Date : " + instElement);
         return instElement.isAfter(instRange);
+    }
+
+    @Attachment(value = "Page screenshot{0}", type = "image/png")
+    public static byte[] saveScreenshotAllure(String name, WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }

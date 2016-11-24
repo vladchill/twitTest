@@ -33,16 +33,16 @@ public class Sender {
 
         try {
             Message message = new MimeMessage(session);
-            //от кого
+            //from
             message.setFrom(new InternetAddress(fromEmail));
-            //кому
+            //to
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail));
-            //Заголовок письма
+            //theme
             message.setSubject(subject);
-            //Содержимое
+            //message
             message.setText(text);
 
-            //Отправляем сообщение
+            //sending
             Transport.send(message);
         } catch (MessagingException e) {
             throw new RuntimeException(e);

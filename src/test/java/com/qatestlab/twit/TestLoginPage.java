@@ -3,6 +3,8 @@ package com.qatestlab.twit;
 
 import com.qatestlab.pages.LoginPage;
 import static org.testng.Assert.*;
+
+import com.qatestlab.utils.AllUtils;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -22,6 +24,7 @@ public class TestLoginPage extends BaseTest{
         loginPage.authorization("vlad_x_sumy@mail.ru","zaqxswcde12345678");
         loginPage.clickAccountInfoButton();
         assertEquals("testoviyacc", loginPage.getAccountName(),"Login is different");
+        AllUtils.saveScreenshotAllure(" loginPage", driver);
     }
 
 
