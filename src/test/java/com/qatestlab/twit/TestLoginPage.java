@@ -25,6 +25,7 @@ public class TestLoginPage extends BaseTest{
         loginPage.clickAccountInfoButton();
         assertEquals("testoviyacc", loginPage.getAccountName(),"Login is different");
         AllUtils.saveScreenshotAllure(" loginPage", driver);
+
     }
 
 
