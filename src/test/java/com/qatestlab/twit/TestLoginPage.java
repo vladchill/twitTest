@@ -5,6 +5,7 @@ import com.qatestlab.pages.LoginPage;
 import static org.testng.Assert.*;
 
 import com.qatestlab.utils.AllUtils;
+import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

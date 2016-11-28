@@ -75,7 +75,8 @@
                 <version>2.18.1</version>
                 <configuration>
                     <systemPropertyVariables>
-                        <driver.exe.path>${project.build.outputDirectory}${file.separator}chromedriver.exe</driver.exe.path>
+                        <driver.exe.chrome>${project.build.outputDirectory}${file.separator}chromedriver.exe</driver.exe.chrome>
+                        <driver.exe.ie>${project.build.outputDirectory}${file.separator}IEDriverServer.exe</driver.exe.ie>
                     </systemPropertyVariables>
                     <properties>
                         <property>
