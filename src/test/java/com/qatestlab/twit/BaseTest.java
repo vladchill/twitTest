@@ -31,6 +31,7 @@ public class BaseTest {
     @BeforeClass
     public void setUp() throws MalformedURLException {
 
+        System.out.println("property of the browser is "+ System.getProperty("webbrowser"));
         if (System.getProperty("webbrowser").equals("chrome")) {
             String driverPath = System.getProperty("driver.exe.chrome");
             System.out.println(driverPath);
@@ -56,9 +57,9 @@ public class BaseTest {
             System.setProperty("webdriver.ie.driver", driverPath);
             driver = new InternetExplorerDriver(capabilities);
         } else if(System.getProperty("webbrowser").equals("remote")){
-            DesiredCapabilities caps = DesiredCapabilities.edge();
-            caps.setCapability("platform", "Windows 10");
-            caps.setCapability("version", "14.14393");
+            DesiredCapabilities caps = DesiredCapabilities.safari();
+            caps.setCapability("platform", "OS X 10.11");
+            caps.setCapability("version", "10.0");
 
             driver = new RemoteWebDriver(new URL(URLsu), caps);
         }
